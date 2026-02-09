@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 350 50% 97%;
+    --foreground: 340 30% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 340 30% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 30% 20%;
+
+    --primary: 340 82% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 330 50% 92%;
+    --secondary-foreground: 340 40% 30%;
+
+    --muted: 340 30% 94%;
+    --muted-foreground: 340 15% 50%;
+
+    --accent: 350 90% 72%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 340 40% 90%;
+    --input: 340 40% 90%;
+    --ring: 340 82% 65%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom romantic tokens */
+    --rose: 350 85% 60%;
+    --rose-light: 350 80% 88%;
+    --rose-glow: 340 100% 76%;
+    --baby-pink: 350 90% 88%;
+    --blush: 330 60% 94%;
+    --love-red: 0 75% 55%;
+    --love-gradient: linear-gradient(135deg, hsl(340 82% 65%), hsl(350 90% 72%));
+    --card-shadow: 0 8px 32px -8px hsl(340 60% 70% / 0.25);
+    --glow-shadow: 0 0 40px hsl(340 80% 70% / 0.3);
+  }
+
+  .dark {
+    --background: 340 20% 8%;
+    --foreground: 340 20% 95%;
+    --card: 340 20% 12%;
+    --card-foreground: 340 20% 95%;
+    --popover: 340 20% 12%;
+    --popover-foreground: 340 20% 95%;
+    --primary: 340 82% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 340 30% 18%;
+    --secondary-foreground: 340 20% 90%;
+    --muted: 340 20% 16%;
+    --muted-foreground: 340 15% 60%;
+    --accent: 350 90% 72%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 340 20% 20%;
+    --input: 340 20% 20%;
+    --ring: 340 82% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Dancing Script', cursive;
+  }
+}
+
+@layer utilities {
+  .font-romantic {
+    font-family: 'Dancing Script', cursive;
+  }
+
+  .font-body {
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  .text-gradient-love {
+    background: linear-gradient(135deg, hsl(340 82% 65%), hsl(350 90% 72%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-love-gradient {
+    background: linear-gradient(135deg, hsl(340 82% 65%), hsl(350 90% 72%));
+  }
+
+  .bg-blush {
+    background-color: hsl(330 60% 94%);
+  }
+
+  .shadow-love {
+    box-shadow: 0 8px 32px -8px hsl(340 60% 70% / 0.25);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 40px hsl(340 80% 70% / 0.3);
+  }
+
+  .card-romantic {
+    @apply bg-card rounded-2xl shadow-love border border-border p-6;
+  }
+
+  .card-romantic-hover {
+    @apply hover:shadow-glow hover:-translate-y-1 hover:border-primary/40;
+  }
+
+  .btn-love {
+    @apply bg-love-gradient text-primary-foreground font-semibold rounded-full px-8 py-3 shadow-love transition-all duration-300 hover:scale-105 hover:shadow-glow;
+  }
+
+  .btn-outline-love {
+    @apply border-2 border-primary text-primary font-semibold rounded-full px-8 py-3 transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:scale-105;
+  }
+
+  .bg-love-orb {
+    background: radial-gradient(circle at 30% 30%, hsl(350 90% 78% / 0.9), transparent 70%);
+  }
+
+  .bg-love-orb-alt {
+    background: radial-gradient(circle at 60% 40%, hsl(330 80% 85% / 0.9), transparent 70%);
+  }
+
+  @keyframes float-up {
+    0% {
+      transform: translateY(0) scale(0.9);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.95;
+    }
+    100% {
+      transform: translateY(-140vh) scale(1.15);
+      opacity: 0;
+    }
+  }
+
+  @keyframes float-up-sway {
+    0% {
+      transform: translate(0, 0) scale(0.9);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.95;
+    }
+    50% {
+      transform: translate(var(--heart-drift), -70vh) scale(1.05);
+    }
+    100% {
+      transform: translate(calc(var(--heart-drift) * -0.4), -140vh) scale(1.15);
+      opacity: 0;
+    }
+  }
+
+  @keyframes sparkle-float {
+    0% {
+      transform: translate(-50%, -50%) scale(0.4) rotate(var(--sparkle-rotate));
+      opacity: 0;
+    }
+    30% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -90%) scale(1.15) rotate(var(--sparkle-rotate));
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulse-heart {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
+  }
+
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(6deg);
+    }
+    75% {
+      transform: rotate(-6deg);
+    }
+  }
+
+  .animate-float-up {
+    animation: float-up 6s linear infinite;
+  }
+
+  .animate-float-up-sway {
+    animation: float-up-sway 10s ease-in-out infinite;
+  }
+
+  .animate-pulse-heart {
+    animation: pulse-heart 1.6s ease-in-out infinite;
+  }
+
+  .animate-wiggle {
+    animation: wiggle 0.6s ease-in-out infinite;
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  .cursor-sparkle {
+    position: absolute;
+    animation: sparkle-float 0.9s ease-out forwards;
+    filter: drop-shadow(0 0 10px hsl(var(--baby-pink) / 0.9));
+    will-change: transform, opacity;
+  }
+}
